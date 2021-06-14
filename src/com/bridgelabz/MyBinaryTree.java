@@ -50,4 +50,28 @@ public class MyBinaryTree<K extends Comparable<K>> {
 			inorderRec(root.right);
 		}
 	}
+
+	public MyBinaryNode<K> search(K key) {
+		return search(root, key);
+	}
+
+	/**
+	 * A utility function to search a given key in BST
+	 * 
+	 * @param root
+	 * @param key
+	 * @return
+	 */
+	private MyBinaryNode<K> search(MyBinaryNode<K> root, K key) {
+		// Base Cases: root is null or key is present at root
+		if (root == null || root.key == key)
+			return root;
+		// Key is greater than root's key
+		int compareResult = root.key.compareTo(key);
+		if (compareResult < 0) {
+			return search(root.right, key);
+		}
+		// Key is smaller than root's key
+		return search(root.left, key);
+	}
 }

@@ -17,6 +17,11 @@ public class Runner {
 		myBinaryTree.add(67);
 		myBinaryTree.add(95);
 		myBinaryTree.inorder();
-		System.out.println("Total number of tree elements " + myBinaryTree.getSize());
+		MyBinaryNode<Integer> resultNode = myBinaryTree.search(63);
+		if (resultNode == null) {
+			System.out.println("Element not found");
+		} else {
+			System.out.println("Search element " + resultNode.getKey() + " found");
+		}
 	}
 }
